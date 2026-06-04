@@ -1,37 +1,104 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <title>Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:30px;
+}
+
+.card{
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:25px;
+    margin-bottom:20px;
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+img{
+    width:180px;
+    border-radius:50%;
+    border:4px solid white;
+}
+
+button{
+    background:#3b82f6;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#2563eb;
+}
+
+ul{
+    line-height:1.8;
+}
+</style>
+
 </head>
 <body>
 
-    <h1>แนะนำตัว</h1>
+<div class="container">
 
-    <img src="profile.jpg" alt="รูปโปรไฟล์" width="200">
+    <div class="card" style="text-align:center;">
+        <img src="profile.jpg" alt="Profile">
+        <h1>เดชาธร บุญเจือ</h1>
+        <p>Student | Future Programmer</p>
+    </div>
 
-    <h2>ข้อมูลส่วนตัว</h2>
-    <p><strong>ชื่อ:</strong> เดชาธร คำแพง</p>
-    <p><strong>อายุ:</strong> 17 ปี</p>
-    <p><strong>กำลังศึกษา:</strong> ระดับมัธยมศึกษา</p>
+    <div class="card">
+        <h2>ข้อมูลส่วนตัว</h2>
+        <p>กำลังศึกษาอยู่ระดับมัธยมศึกษา มีความสนใจด้านเทคโนโลยี การออกแบบ และการเขียนโปรแกรม</p>
+    </div>
 
-    <h2>ทักษะ</h2>
-    <ul>
-        <li>Microsoft Office</li>
-        <li>Canva</li>
-        <li>HTML เบื้องต้น</li>
-        <li>การทำงานเป็นทีม</li>
-    </ul>
+    <div class="card">
+        <h2>ทักษะ</h2>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Canva</li>
+        </ul>
+    </div>
 
-    <h2>งานอดิเรก</h2>
-    <ul>
-        <li>ฟังเพลง</li>
-        <li>เล่นกีฬา</li>
-        <li>เล่นเกม</li>
-    </ul>
+    <div class="card">
+        <h2>งานอดิเรก</h2>
+        <ul>
+            <li>ฟังเพลง</li>
+            <li>เล่นเกม</li>
+            <li>ดูการแข่งขัน F1</li>
+        </ul>
+    </div>
 
-    <h2>เป้าหมาย</h2>
-    <p>มุ่งมั่นพัฒนาทักษะและหาประสบการณ์ใหม่ ๆ เพื่อเตรียมความพร้อมสำหรับการศึกษาต่อและการทำงานในอนาคต</p>
+    <div class="card" style="text-align:center;">
+        <button onclick="showMessage()">ติดต่อฉัน</button>
+    </div>
+
+</div>
+
+<script>
+function showMessage(){
+    alert("ขอบคุณที่เข้าชม Portfolio ของฉัน");
+}
+</script>
 
 </body>
 </html>
