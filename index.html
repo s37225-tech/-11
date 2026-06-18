@@ -1,79 +1,188 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dechatorn | Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* ปรับพื้นหลังให้มืดสนิทและลึกลับขึ้นสไตล์ Sci-Fi */
+            background: radial-gradient(circle at center, #0f111a 0%, #050508 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
 
-<style>
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:linear-gradient(135deg,#0f172a,#1e293b);
-    color:white;
-}
+        /* เพิ่มเอฟเฟกต์สะท้อนแสงนีออนรอบๆ การ์ดเวลา Hover */
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.15);
+        }
+        
+        .profile-section {
+            text-align: center;
+        }
+        
+        img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            /* เปลี่ยนขอบรูปเป็นไล่เฉดสี นีออนไซอัน-ม่วง */
+            border: 3px solid transparent;
+            background: linear-gradient(#0f111a, #0f111a) padding-box,
+                        linear-gradient(135deg, #06b6d4, #a855f7) border-box;
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.4);
+            margin-bottom: 20px;
+            transition: transform 0.5s ease;
+        }
 
-.container{
-    max-width:900px;
-    margin:auto;
-    padding:30px;
-}
+        .card:hover img {
+            transform: scale(1.05) rotate(5deg);
+        }
+        
+        h1 {
+            margin: 10px 0 5px 0;
+            font-size: 30px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            /* ทำตัวหนังสือไล่เฉดสี */
+            background: linear-gradient(135deg, #ffffff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            color: #06b6d4; /* สีฟ้านีออน */
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 5px;
+            margin-bottom: 0;
+            text-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+        }
+        
+        h2 {
+            color: #a855f7; /* หัวข้อสีม่วงนีออนสไตล์ F1 / Cyberpunk */
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid rgba(168, 85, 247, 0.2);
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+        
+        p, li {
+            color: #94a3b8;
+            font-size: 15px;
+            line-height: 1.7;
+        }
 
-.card{
-    background:rgba(255,255,255,0.1);
-    backdrop-filter:blur(10px);
-    border-radius:20px;
-    padding:25px;
-    margin-bottom:20px;
-    box-shadow:0 0 20px rgba(0,0,0,0.3);
-}
-
-img{
-    width:180px;
-    border-radius:50%;
-    border:4px solid white;
-}
-
-button{
-    background:#3b82f6;
-    color:white;
-    border:none;
-    padding:12px 20px;
-    border-radius:10px;
-    cursor:pointer;
-    font-size:16px;
-}
-
-button:hover{
-    background:#2563eb;
-}
-
-ul{
-    line-height:1.8;
-}
-</style>
-
+        li {
+            margin-bottom: 8px;
+            list-style-type: '⚡ '; /* เปลี่ยนกระสุนหัวข้อให้เป็นสายฟ้าเพิ่มความเท่ */
+        }
+        
+        ul {
+            margin: 0;
+            padding-left: 15px;
+        }
+        
+        .btn-contact {
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            color: white;
+            border: none;
+            padding: 16px 28px;
+            border-radius: 14px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 700;
+            width: 100%;
+            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-contact:hover {
+            background: linear-gradient(135deg, #3b82f6, #a855f7);
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
+            transform: translateY(-2px);
+        }
+        
+        .ig-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 22px;
+            color: #f43f5e;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.2s;
+            padding: 8px 16px;
+            border-radius: 30px;
+            background: rgba(244, 63, 94, 0.05);
+            border: 1px solid rgba(244, 63, 94, 0.1);
+        }
+        
+        .ig-link:hover {
+            color: #fff;
+            background: #f43f5e;
+            box-shadow: 0 0 20px rgba(244, 63, 94, 0.4);
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
 
 <div class="container">
 
-    <div class="card" style="text-align:center;">
-        <img src="profile.jpg" alt="Profile">
+    <div class="card profile-section">
+        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400" alt="Profile">
         <h1>เดชาธร คำแพง</h1>
-        <p>Student | Future Programmer</p>
+        <p class="subtitle">🔴 Student | Future Programmer</p>
     </div>
 
     <div class="card">
         <h2>ข้อมูลส่วนตัว</h2>
-        <p>กำลังศึกษาอยู่ระดับมัธยมศึกษา มีความสนใจด้านกีฬา การออกกำลังกาย</p>
+        <p>กำลังศึกษาอยู่ระดับมัธยมศึกษา มีความสนใจในเรื่องการเขียนโค้ด เทคโนโลยี รวมถึงรักในด้านกีฬาและการออกกำลังกายครับ</p>
     </div>
 
     <div class="card">
-        <h2>ทักษะ</h2>
+        <h2>ทักษะ (Skills)</h2>
         <ul>
-           
-            <li>Canva</li>
+            <li>Canva (Design & Presentation)</li>
+            <li>HTML / CSS (Basic Web Design)</li>
         </ul>
     </div>
 
@@ -82,19 +191,24 @@ ul{
         <ul>
             <li>ฟังเพลง</li>
             <li>เล่นเกม</li>
-            <li>ดูการแข่งขัน F1</li>
+            <li>ติดตามข่าวสารและชมการแข่งขัน F1 (Formula 1)</li>
         </ul>
     </div>
 
     <div class="card" style="text-align:center;">
-        <button onclick="showMessage()">ติดต่อฉัน</button>
+        <h2>ติดต่อฉัน</h2>
+        <button class="btn-contact" onclick="showMessage()">คลิกเพื่อทักทาย</button>
+        <br>
+        <a class="ig-link" href="https://www.instagram.com/hyoyeon_7_x/" target="_blank" rel="noopener noreferrer">
+            📸 Instagram: @hyoyeon_7_x
+        </a>
     </div>
-<p>ig.hyoyeon_7_x</p>
+
 </div>
 
 <script>
 function showMessage(){
-    alert("ขอบคุณที่เข้าชม Portfolio ของฉัน");
+    alert("ขอบคุณที่เข้าชม Portfolio ของฉันครับ! ยินดีที่ได้รู้จักนะ");
 }
 </script>
 
